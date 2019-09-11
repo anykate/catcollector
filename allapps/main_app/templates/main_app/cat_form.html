@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}
+	Cat Collector | Add a Cat
+{% endblock %}
+
+{% block content %}
+	{% if object %}
+		<h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+	{% else %}
+		<h1>Add Cat</h1>
+	{% endif %}
+	<!-- Leaving the action empty makes the form post to the same url used to display it -->
+	<form action="" method="post">
+		<!-- Django requires the following for security purposes -->
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit!" class="btn">
+	</form>
+{% endblock %}
+
+{% block extra_js %}
+	<script type="text/javascript">
+	{% comment %} Write your Extra javascript/jQuery block here... {% endcomment %}
+
+	</script>
+{% endblock %}

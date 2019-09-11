@@ -1,0 +1,34 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}
+	Cat Collector | Details
+{% endblock %}
+
+{% block content %}
+	<h1>Cat Details</h1>
+
+	<div class="card">
+	<div class="card-content">
+		<span class="card-title">{{ cat.name }}</span>
+		<p>Breed: {{ cat.breed }}</p>
+		<p>Description: {{ cat.description }}</p>
+		{% if cat.age > 0 %}
+		<p>Age: {{ cat.age }}</p>
+		{% else %}
+		<p>Age: Kitten</p>
+		{% endif %}
+	</div>
+	<div class="card-action">
+		<a href="{% url 'main_app:cats_update' cat.id %}">Edit</a>
+		<a href="{% url 'main_app:cats_delete' cat.id %}">Delete</a>
+	</div>
+	</div>
+{% endblock %}
+
+{% block extra_js %}
+	<script type="text/javascript">
+	{% comment %} Write your Extra javascript/jQuery block here... {% endcomment %}
+
+	</script>
+{% endblock %}
